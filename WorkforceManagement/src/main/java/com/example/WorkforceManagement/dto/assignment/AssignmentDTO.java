@@ -14,5 +14,4 @@ public class AssignmentDTO {
     private String intervalLabel;
     private OffsetDateTime assignedAt;
     private Long assignedById;
-    private String status;
 }

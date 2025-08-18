@@ -18,7 +18,6 @@ public class WorkOrder {
     @Column(nullable = false, length = 400)
     private String title;
 
-    @Lob
     private String description;
 
     @Column(nullable = false, length = 200)
@@ -30,7 +29,7 @@ public class WorkOrder {
     @Column(length = 320)
     private String customerEmail;
 
-    @Lob
+
     private String customerAddress;
 
     @Column(nullable = false)

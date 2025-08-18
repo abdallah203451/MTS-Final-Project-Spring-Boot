@@ -2,6 +2,9 @@ package com.example.WorkforceManagement.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "employees_am")
 @Data
@@ -26,4 +29,7 @@ public class Employee {
 
     @Column(nullable = false, length = 20)
     private String role; // 'Technician' or 'TeamLeader'
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<WorkOrderAssignment> assignments = new ArrayList<>();
 }

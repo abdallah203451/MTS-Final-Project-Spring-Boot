@@ -2,12 +2,11 @@ package com.example.WorkforceManagement.dto.assignment;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import java.time.LocalDate;
 
 @Data
-public class AssignmentCreateDTO {
+public class ReassignmentDTO {
     @NotNull
     private Long workOrderId;
     @NotNull
-    private Long employeeId;
+    private Long newEmployeeId;
 }
