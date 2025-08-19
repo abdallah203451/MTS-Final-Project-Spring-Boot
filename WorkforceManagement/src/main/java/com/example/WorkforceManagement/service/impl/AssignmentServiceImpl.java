@@ -117,6 +117,9 @@ public class AssignmentServiceImpl implements AssignmentService {
 
         // Remove existing assignments for this work order
         List<WorkOrderAssignment> existingAssignments = assignmentRepo.findByWorkOrder(wo);
+        if(existingAssignments.isEmpty()) {
+            throw new ConflictException("WorkOrder is not assigned");
+        }
         assignmentRepo.deleteAll(existingAssignments);
 
         // Find an available interval for the new technician
@@ -202,11 +205,12 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public List<LocalDate> getAvailableDates(int days) {
-        if (days <= 0) return Collections.emptyList();
+    public List<LocalDate> getAvailableDates(Long workOrderId) {
+        WorkOrder workOrder = workOrderRepo.findById(workOrderId)
+                .orElseThrow(() -> new RuntimeException("WorkOrder not found with id: " + workOrderId));
 
-        LocalDate start = LocalDate.now().plusDays(1); // tomorrow
-        LocalDate end = start.plusDays(days - 1);
+        LocalDate start = workOrder.getCreatedAt().toLocalDate().plusDays(1); // tomorrow
+        LocalDate end = start.plusDays(13);
 
         long techCount = employeeRepo.countByRole("Technician");
         long intervalCount = intervalRepo.count();

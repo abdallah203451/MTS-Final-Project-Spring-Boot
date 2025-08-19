@@ -43,5 +43,5 @@ public class WorkOrder {
     private Employee createdBy;
 
     @Column(nullable = false, length = 30)
-    private String status; // NotAssigned, Assigned, InProgress, Completed, Cancelled
+    private String status; // NotAssigned, Assigned, scheduled, Completed, Cancelled
 }

@@ -11,6 +11,7 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/technicians")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class TechnicianController {
 
     private final EmployeeService service;

@@ -11,6 +11,7 @@ import com.example.WorkforceManagement.security.SecurityUtils;
 
 @RestController
 @RequestMapping("/api/workorders")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class WorkOrderController {
 
     private final WorkOrderService service;
@@ -48,6 +49,12 @@ public class WorkOrderController {
     public ResponseEntity<WorkOrderDTO> update(@PathVariable Long id,
                                                @Valid @RequestBody WorkOrderUpdateDTO dto) {
         WorkOrderDTO updated = service.updateWorkOrder(id, dto);
+        return ResponseEntity.ok(updated);
+    }
+
+    @PutMapping("forceCancel/{id}")
+    public ResponseEntity<WorkOrderDTO> forceCancel(@PathVariable Long id) {
+        WorkOrderDTO updated = service.updateStatusToCancelled(id);
         return ResponseEntity.ok(updated);
     }
 }

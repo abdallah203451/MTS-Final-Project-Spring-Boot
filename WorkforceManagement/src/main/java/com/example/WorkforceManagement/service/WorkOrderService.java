@@ -10,4 +10,5 @@ public interface WorkOrderService {
     WorkOrderDTO getWorkOrderById(Long id);
     Page<WorkOrderDTO> searchWorkOrders(WorkOrderSearchCriteria criteria, Pageable pageable);
     WorkOrderDTO updateWorkOrder(Long id, WorkOrderUpdateDTO dto);
+    WorkOrderDTO updateStatusToCancelled(Long id);
 }

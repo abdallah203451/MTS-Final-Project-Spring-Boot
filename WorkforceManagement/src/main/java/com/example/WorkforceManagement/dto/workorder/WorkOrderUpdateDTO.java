@@ -1,5 +1,6 @@
 package com.example.WorkforceManagement.dto.workorder;
 
+import com.example.WorkforceManagement.validation.Phone;
 import lombok.Data;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
@@ -17,11 +18,10 @@ public class WorkOrderUpdateDTO {
     private String customerName;
 
     @NotBlank
-    @Size(max = 30)
+    @Phone
     private String customerMobile;
 
-    @Email
-    @Size(max = 320)
+    @Email(message = "must be a valid email")
     private String customerEmail;
 
     private String customerAddress;

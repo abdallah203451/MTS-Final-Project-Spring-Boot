@@ -12,5 +12,5 @@ public interface AssignmentService {
     AssignmentDTO reassignWorkOrder(ReassignmentDTO dto, Long assignedById);
     List<AvailableEmployeeDTO> getAvailableEmployeesForDate(LocalDate date);
     List<DaySlotsDTO> getTimeSlotsForTechnician(Long technicianId, int days);
-    List<java.time.LocalDate> getAvailableDates(int days);
+    List<java.time.LocalDate> getAvailableDates(Long workOrderId);
 }

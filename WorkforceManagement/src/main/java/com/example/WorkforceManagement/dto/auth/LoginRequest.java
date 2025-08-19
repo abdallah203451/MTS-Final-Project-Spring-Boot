@@ -1,5 +1,6 @@
 package com.example.WorkforceManagement.dto.auth;
 
+import com.example.WorkforceManagement.validation.Password;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -15,5 +16,6 @@ public class LoginRequest {
     private String email;
 
     @NotBlank(message = "password is required")
+    @Password
     private String password;
 }

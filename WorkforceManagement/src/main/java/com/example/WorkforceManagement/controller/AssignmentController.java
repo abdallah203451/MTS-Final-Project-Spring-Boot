@@ -16,6 +16,7 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/assignments")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class AssignmentController {
 
     private final AssignmentService service;
@@ -49,8 +50,8 @@ public class AssignmentController {
     }
 
     @GetMapping("/available-dates")
-    public ResponseEntity<List<LocalDate>> availableDates(@RequestParam(defaultValue = "14") int days) {
-        List<LocalDate> dates = service.getAvailableDates(days);
+    public ResponseEntity<List<LocalDate>> availableDates(@RequestParam Long workOrderId) {
+        List<LocalDate> dates = service.getAvailableDates(workOrderId);
         return ResponseEntity.ok(dates);
     }
 
