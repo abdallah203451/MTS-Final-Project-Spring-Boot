@@ -9,5 +9,5 @@ public interface EmployeeService {
     EmployeeDTO createTechnician(CreateTechnicianDTO dto, Long createdById);
     List<EmployeeDTO> getAllTechnicians();
     EmployeeDTO getTechnicianById(Long id);
-    List<EmployeeDTO> getAvailableTechniciansInDate(LocalDate date);
+//    List<EmployeeDTO> getAvailableTechniciansInDate(LocalDate date);
 }

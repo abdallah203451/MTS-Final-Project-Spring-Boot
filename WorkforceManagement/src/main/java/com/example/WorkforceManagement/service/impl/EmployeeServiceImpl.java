@@ -57,12 +57,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         return mapper.toDto(e);
     }
 
-    @Override
-    public List<EmployeeDTO> getAvailableTechniciansInDate(LocalDate date) {
-        return repo.findEmployeesWithLessThanSixAssignments(date)
-                .stream()
-                .map(mapper::toDto)
-                .collect(Collectors.toList());
-
-    }
+//    @Override
+//    public List<EmployeeDTO> getAvailableTechniciansInDate(LocalDate date) {
+//        return repo.findEmployeesWithLessThanSixAssignments(date)
+//                .stream()
+//                .map(mapper::toDto)
+//                .collect(Collectors.toList());
+//
+//    }
 }
