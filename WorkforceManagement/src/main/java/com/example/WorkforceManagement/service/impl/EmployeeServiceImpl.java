@@ -9,6 +9,8 @@ import com.example.WorkforceManagement.service.EmployeeService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,5 +55,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee e = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Technician not found"));
         if (!"Technician".equals(e.getRole())) throw new ResourceNotFoundException("Employee is not a technician");
         return mapper.toDto(e);
+    }
+
+    @Override
+    public List<EmployeeDTO> getAvailableTechniciansInDate(LocalDate date) {
+        return repo.findEmployeesWithLessThanSixAssignments(date)
+                .stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
+
     }
 }

@@ -29,6 +29,11 @@ public class TechnicianController {
         return ResponseEntity.ok(service.getAllTechnicians());
     }
 
+    @GetMapping("/available")
+    public ResponseEntity<List<EmployeeDTO>> listAvailableEmpsOnDate(@Valid @RequestBody  DateForAvailabilityDTO dto) {
+        return ResponseEntity.ok(service.getAvailableTechniciansInDate(dto.getAvailabilityDate()));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeDTO> getOne(@PathVariable Long id) {
         return ResponseEntity.ok(service.getTechnicianById(id));

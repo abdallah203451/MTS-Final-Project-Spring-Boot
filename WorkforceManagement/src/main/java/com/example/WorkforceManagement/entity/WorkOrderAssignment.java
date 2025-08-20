@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "work_order_assignments_am",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"employee_id","work_date"})})
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"employee_id","work_order_id"})})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
