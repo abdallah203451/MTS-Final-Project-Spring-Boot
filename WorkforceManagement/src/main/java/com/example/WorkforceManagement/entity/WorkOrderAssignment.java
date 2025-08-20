@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "work_order_assignments_am",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"employee_id","work_date","interval_id"})})
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"employee_id","work_date"})})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +28,7 @@ public class WorkOrderAssignment {
     private LocalDate workDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "interval_id", nullable = false)
+    @JoinColumn(name = "interval_id", nullable = true)
     private Interval interval;
 
     private OffsetDateTime assignedAt;

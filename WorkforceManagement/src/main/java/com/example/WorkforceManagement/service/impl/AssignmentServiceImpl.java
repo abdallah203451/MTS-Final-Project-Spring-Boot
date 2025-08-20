@@ -65,19 +65,19 @@ public class AssignmentServiceImpl implements AssignmentService {
 
         // Find an available interval for the proposed date
         LocalDate workDate = wo.getProposedSchedulingDate();
-        List<Interval> allIntervals = intervalRepo.findAll();
-
-        Interval availableInterval = null;
-        for (Interval interval : allIntervals) {
-            if (!assignmentRepo.existsByEmployeeAndWorkDateAndInterval(tech, workDate, interval)) {
-                availableInterval = interval;
-                break;
-            }
-        }
-
-        if (availableInterval == null) {
-            throw new ConflictException("Technician has no available intervals for the proposed date");
-        }
+//       List<Interval> allIntervals = intervalRepo.findAll();
+//
+//        Interval availableInterval = null;
+//        for (Interval interval : allIntervals) {
+//            if (!assignmentRepo.existsByEmployeeAndWorkDateAndInterval(tech, workDate, interval)) {
+//                availableInterval = interval;
+//                break;
+//            }
+//        }
+//
+//        if (availableInterval == null) {
+//            throw new ConflictException("Technician has no available intervals for the proposed date");
+//        }
 
         // Create assignment
         WorkOrderAssignment assignment = new WorkOrderAssignment();

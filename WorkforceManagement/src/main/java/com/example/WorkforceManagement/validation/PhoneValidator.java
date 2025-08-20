@@ -8,9 +8,9 @@ public class PhoneValidator implements ConstraintValidator<Phone, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if (value == null) {
+        if (value == null || value.trim().isEmpty()) {
             // if you prefer null to be valid, return true here and annotate with @NotNull/@NotBlank on DTOs
-            return false;
+            return true;
         }
         String trimmed = value.trim();
         return trimmed.matches(EGY_PHONE_REGEX);
