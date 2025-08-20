@@ -84,7 +84,7 @@ public class AssignmentServiceImpl implements AssignmentService {
         assignment.setWorkOrder(wo);
         assignment.setEmployee(tech);
         assignment.setWorkDate(workDate);
-        assignment.setInterval(availableInterval);
+//        assignment.setInterval(availableInterval);
         assignment.setAssignedAt(OffsetDateTime.now());
         assignment.setAssignedBy(assignedBy);
 

@@ -26,12 +26,19 @@
 		<tag/>
 		<url/>
 	</scm>
-	<properties>
-		<java.version>23</java.version>
-		<mapstruct.version>1.5.5.Final</mapstruct.version>
-		<jjwt.version>0.11.5</jjwt.version>
-	</properties>
+    <properties>
+        <java.version>19</java.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <jjwt.version>0.11.5</jjwt.version>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+    </properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.4</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
